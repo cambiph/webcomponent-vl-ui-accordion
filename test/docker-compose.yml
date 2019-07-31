@@ -23,6 +23,10 @@ services:
       - selenium-hub
       - selenium-chrome
       - selenium-firefox
+    environment: 
+      - http_proxy=${http_proxy}
+      - https_proxy=${https_proxy}
+      - no_proxy=${no_proxy},selenium-hub,host
     working_dir: /workdir
     volumes:
       - ${HOME:-.}/.npmrc:/root/.npmrc:ro
