@@ -13,8 +13,6 @@ RUN git clone ${REPO} app
 
 WORKDIR /home/node/app
 
-RUN npm config set proxy http://forwardproxy-pr.lb.cumuli.be:3128 \
-    && npm config set https-proxy http://forwardproxy-pr.lb.cumuli.be:3128 \
-    && npm install \
+RUN npm install \
     && npm run release:prepare \
     && npm run release:testless -- ${VERSION}
